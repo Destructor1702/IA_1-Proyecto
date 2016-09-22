@@ -75,7 +75,7 @@ public class Controller {
                 }
                 String[] numeros=linea.split(",");
 
-                for(int i=0; i<Columna.length;i++)
+                for(int i=0; i<Columna.length;i++)//Usamos el valor de Columnas y añadimos a la lista del arreglo de numeros
                     numeroArchivo.add(numeros[i]);
 
                 filas++;
