@@ -1,0 +1,114 @@
+package sample;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.*;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Controller {
+    @FXML
+    Button btnCargar;
+    @FXML
+    BorderPane bpVentana;
+
+    int Columnas=0, Filas=0;
+    GridPane gpTerreno = new GridPane();
+
+    List<String> numeroArchivo = new ArrayList<String>(); //Guardamos los numeros del txt
+
+    public void cargaMapa () throws IOException{ //Cargamos y leemos el mapa para presentar el grid
+
+        cargarArchivo();//Llamaos al método de carga de archivo y conteo de fila y columnas
+
+        bpVentana.setCenter(gpTerreno);
+
+
+        gpTerreno.setGridLinesVisible(true);
+
+        for(int i=0; i<Columnas; i++) { //Agrega las columnas deseadas
+            ColumnConstraints colConst = new ColumnConstraints();
+            colConst.setHgrow(Priority.ALWAYS);
+            colConst.setPercentWidth(100.0/Columnas);
+            gpTerreno.getColumnConstraints().add(colConst);
+        }
+
+        for(int i=0; i<Filas; i++) { //Agrega las filas deseadas
+            RowConstraints rowConst = new RowConstraints();
+            rowConst.setVgrow(Priority.ALWAYS);
+            rowConst.setPrefHeight(100.0/Filas);
+            gpTerreno.getRowConstraints().add(rowConst);
+        }
+
+        agregarImagenes();
+        pruebaLista();
+    }
+
+    public void cargarArchivo () throws IOException{ //Cargamos el archivo y almacenamos lo que tiene
+        Filas=0;
+        Columnas=0;
+        File archivo;
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccione el mapa a cargar");
+        archivo = fileChooser.showOpenDialog(new Stage());
+
+        if(archivo!= null) {
+            FileInputStream stream = new FileInputStream(archivo);
+            BufferedReader entrada = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-8")));
+            String linea=null; //Contiene cada linea
+            String[] Columna=new String[100];//Un valor para inicializar el arreglo
+            int filas=0;
+            boolean conteoColumaas=false;
+            while ((linea=entrada.readLine()) != null) {//Leemos
+                if(conteoColumaas==false) {
+                    Columna=linea.split(",");//Borra la ,
+                    conteoColumaas=true;
+                }
+                String[] numeros=linea.split(",");
+
+                for(int i=0; i<Columna.length;i++)
+                    numeroArchivo.add(numeros[i]);
+
+                filas++;
+            }
+            //Ponemos lso valores
+            Filas=filas;
+            Columnas=Columna.length;
+        }
+    }
+
+    public void agregarImagenes() throws IOException { //Agregar imageviews t cargar previamente las imágenes
+        int numColumna=0, numFila=0;
+
+        for(int i=0; numColumna<Columnas; i++){//Contador auxiliar para circular por la lista y agregar el terreno
+            //correspondiente, verificado si el contenido es lo que el usuario puso como tal. Por ejemplo
+            //Si en la lista lee un 3 y el usuario indicó que el 3 fuera agua, se pone el agua en ese lugar
+            //También se podría generar una matriz con los terrenos para un uso posterior con la IA, esto para verificar
+            //Si está en esa posición haga lo de los costos
+            numFila=0;
+            for(int j=0; numFila<Filas; j++) {//Llena la cuadrícula del grif
+                Image imagen1 = new Image(getClass().getResourceAsStream("pj.jpg"));
+                Label terreno1 = new Label();
+                terreno1.setGraphic(new ImageView(imagen1));
+                gpTerreno.add(terreno1, numColumna, numFila);
+                numFila++;
+            }
+            numColumna++;
+        }
+    }
+
+    public void pruebaLista() { //Pruebas de la lista
+        System.out.println("Tamaño de la lista: "+ numeroArchivo.size());
+        for(int i=0; i<numeroArchivo.size();i++)
+            System.out.println("El valor número "+i+" de la lista es: "+numeroArchivo.get(i));
+    }
+}
