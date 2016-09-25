@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox prefHeight="20.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" text="Guardar selección y continuar" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #0" />
+                  <ComboBox fx:id="cb0" prefWidth="150.0" promptText="Terreno para el 0" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #1" />
+                  <ComboBox fx:id="cb1" prefWidth="150.0" promptText="Terreno para el 1" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #2" />
+                  <ComboBox fx:id="cb2" prefWidth="150.0" promptText="Terreno para el 2" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #3" />
+                  <ComboBox fx:id="cb3" prefWidth="150.0" promptText="Terreno para el 3" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #4" />
+                  <ComboBox fx:id="cb4" prefWidth="150.0" promptText="Terreno para el 4" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #5" />
+                  <ComboBox fx:id="cb5" prefWidth="150.0" promptText="Terreno para el 5" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #6" />
+                  <ComboBox fx:id="cb6" prefWidth="150.0" promptText="Terreno para el 6" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="584.0" spacing="10.0">
+               <children>
+                  <Label text="Terreno #7" />
+                  <ComboBox fx:id="cb7" prefWidth="150.0" promptText="Terreno para el 7" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <TextArea editable="false" prefHeight="62.0" prefWidth="600.0" text="Seleccione el tipo de terreno deseado para cada número desplegado en la cuadrícula del mapa anterior. Obviar los números que no aparezcan en la cuadrícula. Gracias" wrapText="true" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </TextArea>
+   </top>
+</BorderPane>

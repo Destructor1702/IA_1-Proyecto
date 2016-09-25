@@ -49,7 +49,7 @@ public class Controller {
             gpTerreno.getRowConstraints().add(rowConst);
         }
 
-        agregarImagenes();
+        terrenoPreliminar();
         pruebaLista();
     }
 
@@ -86,7 +86,7 @@ public class Controller {
         }
     }
 
-    public void agregarImagenes() throws IOException { //Agregar imageviews t cargar previamente las imágenes
+    public void terrenoPreliminar() throws IOException { //Agregar imageviews t cargar previamente las imágenes
         int numColumna=0, numFila=0;
 
         /*
@@ -122,6 +122,7 @@ public class Controller {
                 Label lb6 = new Label("Terreno 6");
                 Label lb7 = new Label("Terreno 7");
 
+                //Obtenemos el valor de la lista por columnas y compaaramos para agregar el número preliminar
                 if(numeroArchivo.get(aux).equals("0"))
                     gpTerreno.add(lb0,numColumna,numFila);
                 if(numeroArchivo.get(aux).equals("1"))
@@ -145,7 +146,7 @@ public class Controller {
         }
     }
 
-    public void pruebaLista() { //Pruebas de la lista
+    public void pruebaLista() { //Pruebas de la lista. Solo para debug de la lista
         System.out.println("Tamaño de la lista: "+ numeroArchivo.size());
         for(int i=0; i<numeroArchivo.size();i++) {
             System.out.println("El valor número " + i + " de la lista es: " + numeroArchivo.get(i));
