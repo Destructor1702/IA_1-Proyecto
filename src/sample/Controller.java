@@ -53,7 +53,7 @@ public class Controller {
         pruebaLista();
     }
 
-    public void cargarArchivo () throws IOException{ //Cargamos el archivo y almacenamos lo que tiene
+    public void cargarArchivo () throws ArrayIndexOutOfBoundsException, IOException{ //Cargamos el archivo y almacenamos lo que tiene
         Filas=0;
         Columnas=0;
         File archivo;
@@ -89,6 +89,7 @@ public class Controller {
     public void agregarImagenes() throws IOException { //Agregar imageviews t cargar previamente las imágenes
         int numColumna=0, numFila=0;
 
+        /*
         for(int i=0; numColumna<Columnas; i++){//Contador auxiliar para circular por la lista y agregar el terreno
             //correspondiente, verificado si el contenido es lo que el usuario puso como tal. Por ejemplo
             //Si en la lista lee un 3 y el usuario indicó que el 3 fuera agua, se pone el agua en ese lugar
@@ -104,11 +105,50 @@ public class Controller {
             }
             numColumna++;
         }
+        */
+
+        int aux=0;
+        for(int i=0; numFila<Filas; i++){
+            numColumna=0;
+            for (int j=0; numColumna<Columnas; j++){
+
+                //Labels preliminares
+                Label lb0 = new Label("Terreno 0");
+                Label lb1 = new Label("Terreno 1");
+                Label lb2 = new Label("Terreno 2");
+                Label lb3 = new Label("Terreno 3");
+                Label lb4 = new Label("Terreno 4");
+                Label lb5 = new Label("Terreno 5");
+                Label lb6 = new Label("Terreno 6");
+                Label lb7 = new Label("Terreno 7");
+
+                if(numeroArchivo.get(aux).equals("0"))
+                    gpTerreno.add(lb0,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("1"))
+                    gpTerreno.add(lb1,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("2"))
+                    gpTerreno.add(lb2,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("3"))
+                    gpTerreno.add(lb3,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("4"))
+                    gpTerreno.add(lb4,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("5"))
+                    gpTerreno.add(lb5,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("6"))
+                    gpTerreno.add(lb6,numColumna,numFila);
+                if(numeroArchivo.get(aux).equals("7"))
+                    gpTerreno.add(lb7,numColumna,numFila);
+                numColumna++;
+                aux++;
+            }
+            numFila++;
+        }
     }
 
     public void pruebaLista() { //Pruebas de la lista
         System.out.println("Tamaño de la lista: "+ numeroArchivo.size());
-        for(int i=0; i<numeroArchivo.size();i++)
-            System.out.println("El valor número "+i+" de la lista es: "+numeroArchivo.get(i));
+        for(int i=0; i<numeroArchivo.size();i++) {
+            System.out.println("El valor número " + i + " de la lista es: " + numeroArchivo.get(i));
+        }
     }
 }
