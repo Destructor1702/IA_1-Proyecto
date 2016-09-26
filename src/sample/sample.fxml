@@ -11,6 +11,7 @@
       <HBox prefHeight="27.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnCargar" mnemonicParsing="false" onAction="#cargaMapa" text="Cargar mapa" />
+            <Button mnemonicParsing="false" onAction="#ventana_Seleccion_Terrenos" text="Seleccionar Terrenos" />
          </children>
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
