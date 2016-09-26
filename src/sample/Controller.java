@@ -36,6 +36,8 @@ public class Controller {
 
 
         gpTerreno.setGridLinesVisible(true);
+        gpTerreno.getColumnConstraints().clear();
+        gpTerreno.getRowConstraints().clear();
 
         for(int i=0; i<Columnas; i++) { //Agrega las columnas deseadas
             ColumnConstraints colConst = new ColumnConstraints();
@@ -58,6 +60,8 @@ public class Controller {
     public void cargarArchivo () throws ArrayIndexOutOfBoundsException, IOException{ //Cargamos el archivo y almacenamos lo que tiene
         Filas=0;
         Columnas=0;
+        numeroArchivo.clear();
+
         File archivo;
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccione el mapa a cargar");
@@ -110,9 +114,9 @@ public class Controller {
         */
 
         int aux=0;
-        for(int i=0; numFila<Filas; i++){
+        while (numFila<Filas){
             numColumna=0;
-            for (int j=0; numColumna<Columnas; j++){
+            while (numColumna<Columnas){
 
                 //Labels preliminares
                 Label lb0 = new Label("Terreno 0");
