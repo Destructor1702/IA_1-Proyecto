@@ -14,6 +14,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Collections;
 
 //PUTO
 //putos todos
@@ -156,19 +157,36 @@ public class Controller {
 
     public void pruebaLista() { //Pruebas de la lista. Solo para debug de la lista
         System.out.println("Tamaño de la lista: "+ numeroArchivo.size());
+        System.out.println("Lista numeroArchivo");
         for(int i=0; i<numeroArchivo.size();i++) {
             System.out.println("El valor número " + i + " de la lista es: " + numeroArchivo.get(i));
         }
+
+        seleccionTerrenos();
     }
 
     public  void seleccionTerrenos(){
 
-        for(int i = 0; i < numeroArchivo.size(); i++) {
-            if()
+        //Lista para la seleccion de terrenos
 
-                    //lol
+        for(int i = 0; i < numeroArchivo.size(); i++) { //Agrega los tipos de terrenos a una lista
+            if(listTerrenos.contains(numeroArchivo.get(i))) //Compara si existe en la lista, si no agrega
+            {
+                System.out.println("Existia");
+            }
+            else
+            {
+                listTerrenos.add(numeroArchivo.get(i));
+            }
+
         }
+        Collections.sort(listTerrenos); //Ordena la lista de terrenos
 
+        //Debug
+        System.out.println("Lista listTerrenos");
+        for(int i=0; i<listTerrenos.size();i++) {
+            System.out.println("El valor número " + i + " de la lista es: " + listTerrenos.get(i));
+        }
 
     }
 }
