@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //PUTO
+//putos todos
 
 public class Controller {
     @FXML
