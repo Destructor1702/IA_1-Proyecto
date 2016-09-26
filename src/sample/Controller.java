@@ -164,8 +164,9 @@ public class Controller {
     public  void seleccionTerrenos(){
 
         for(int i = 0; i < numeroArchivo.size(); i++) {
-            if(numeroArchivo.get(i).equals(listTerrenos.))
+            if()
 
+                    //lol
         }
 
 
