@@ -28,6 +28,7 @@ public class Controller {
     GridPane gpTerreno = new GridPane();
 
     List<String> numeroArchivo = new ArrayList<String>(); //Guardamos los numeros del txt
+    List<String> listTerrenos = new ArrayList<>(); // Lista de terrenos
 
     public void cargaMapa () throws IOException{ //Cargamos y leemos el mapa para presentar el grid
 
@@ -158,5 +159,15 @@ public class Controller {
         for(int i=0; i<numeroArchivo.size();i++) {
             System.out.println("El valor número " + i + " de la lista es: " + numeroArchivo.get(i));
         }
+    }
+
+    public  void seleccionTerrenos(){
+
+        for(int i = 0; i < numeroArchivo.size(); i++) {
+            if(numeroArchivo.get(i).equals(listTerrenos.))
+
+        }
+
+
     }
 }
