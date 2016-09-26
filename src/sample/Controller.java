@@ -30,17 +30,15 @@ public class Controller{
     Button btnCargar;
     @FXML
     BorderPane bpVentana;
-    @FXML
-    VBox VBTerrenos;
 
     int Columnas=0, Filas=0;
     GridPane gpTerreno = new GridPane();
 
-    List<String> numeroArchivo = new ArrayList<String>(); //Guardamos los numeros del txt
-    List<String> listTerrenos = new ArrayList<>(); // Lista de terrenos
-    ObservableList<String> cbSeleccionTerreno = FXCollections.observableArrayList("Agua","Tierra", "Lodo", "Piedras", "Arbusto", "Camino", "Arena","Hielo");//We declare the items
+    public List<String> numeroArchivo = new ArrayList<String>(); //Guardamos los numeros del txt
+    public List<String> listTerrenos = new ArrayList<String>(); // Lista de terrenos
+    public static List<String> numeroArchivo_Copia = new ArrayList<String>();
+    public static List<String> listTerrenos_Copia = new ArrayList<String>(); // Lista de terrenos
 
-    ComboBox cb0, cb1, cb2, cb3, cb4, cb5, cb6, cb7;
 
     boolean archivoCargado=false;
 
@@ -180,6 +178,10 @@ public class Controller{
     }
 
     public void seleccionTerrenos(){
+        System.out.println("Tamaño numeroArchivo antes del desmadre: "+numeroArchivo.size());
+        for(int i=0;i<numeroArchivo.size();i++)
+            numeroArchivo_Copia.add(numeroArchivo.get(i));
+        //numeroArchivo_Copia=numeroArchivo;
         //Lista para la seleccion de terrenos
         for(int i = 0; i < numeroArchivo.size(); i++) { //Agrega los tipos de terrenos a una lista
             if(listTerrenos.contains(numeroArchivo.get(i))) //Compara si existe en la lista, si no agrega
@@ -192,80 +194,116 @@ public class Controller{
             }
         }
         Collections.sort(listTerrenos); //Ordena la lista de terrenos
+        listTerrenos_Copia=listTerrenos;
 
         //Debug
         System.out.println("Lista listTerrenos");
         for(int i=0; i<listTerrenos.size();i++) {
             System.out.println("El valor número " + i + " de la lista es: " + listTerrenos.get(i));
         }
+        System.out.println("Tamaño listTerrenos: "+listTerrenos.size());
     }
 
-    public void ventana_Seleccion_Terrenos() throws IOException{//Pone los combo Box según la lista de terrenos en la ventana
-        if(archivoCargado==true) {
+    public void ventana_Seleccion_Terrenos() throws IOException{//Abre la otra ventana
+        if(archivoCargado==true) {//Carga el otro fxml
 
             Parent root = FXMLLoader.load(getClass().getResource("seleccionTerrenos.fxml"));
             Stage SLTerreno = new Stage();
             SLTerreno.setTitle("Seleccione su terreno");
             SLTerreno.setScene(new Scene(root, 800, 600));
             SLTerreno.show();
-
-            //VBTerrenos.getChildren().add(cb0);
-            /*
-            for (int i = 0; i < listTerrenos.size(); i++) {
-                if (listTerrenos.get(i).equals("0")) {
-                    VBTerrenos.getChildren().add(cb0);
-                    cb0.setPromptText("Terreno 0");
-                    cb0.setValue("Camino");
-                    cb0.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("1")) {
-                    VBTerrenos.getChildren().add(cb1);
-                    cb1.setPromptText("Terreno 1");
-                    cb1.setValue("Camino");
-                    cb1.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("2")) {
-                    VBTerrenos.getChildren().add(cb2);
-                    cb2.setPromptText("Terreno 2");
-                    cb2.setValue("Camino");
-                    cb2.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("3")) {
-                    VBTerrenos.getChildren().add(cb3);
-                    cb3.setPromptText("Terreno 3");
-                    cb3.setValue("Camino");
-                    cb3.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("4")) {
-                    VBTerrenos.getChildren().add(cb4);
-                    cb4.setPromptText("Terreno 4");
-                    cb4.setValue("Camino");
-                    cb4.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("5")) {
-                    VBTerrenos.getChildren().add(cb5);
-                    cb5.setPromptText("Terreno 5");
-                    cb5.setValue("Camino");
-                    cb5.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("6")) {
-                    VBTerrenos.getChildren().add(cb6);
-                    cb6.setPromptText("Terreno 6");
-                    cb6.setValue("Camino");
-                    cb6.setItems(cbSeleccionTerreno);
-                }
-                if (listTerrenos.get(i).equals("7")) {
-                    VBTerrenos.getChildren().add(cb7);
-                    cb7.setPromptText("Terreno 7");
-                    cb7.setValue("Camino");
-                    cb7.setItems(cbSeleccionTerreno);
-                }
-            }
-            */
         }
-        else{
+        else{//Ventana de tipo alert para advertir al usuario de su error
             Alert alert = new Alert(Alert.AlertType.WARNING, "Primero debe cargar un archivo de mapa. Use el botón de Cargar Mapa");
             alert.showAndWait();
         }
     }
+
+
+
+
+
+    //Declaramos elementos visuales. El de Border no se usa
+    @FXML
+    BorderPane bpTerrenos;
+    @FXML
+    VBox VBTerrenos;
+
+    Label lb = new Label("Hola");
+    ObservableList<String> cbSeleccionTerreno = FXCollections.observableArrayList(
+            "Agua",
+            "Tierra",
+            "Lodo",
+            "Piedras",
+            "Arbusto",
+            "Camino",
+            "Arena",
+            "Hielo");//Declaramos los elementos que tendrán los combos
+
+    ComboBox cb0=new ComboBox(cbSeleccionTerreno);//Declaramos combos y le indicamos que tendrán
+    ComboBox cb1=new ComboBox(cbSeleccionTerreno);
+    ComboBox cb2=new ComboBox(cbSeleccionTerreno);
+    ComboBox cb3=new ComboBox(cbSeleccionTerreno);
+    ComboBox cb4=new ComboBox(cbSeleccionTerreno);
+    ComboBox cb5=new ComboBox(cbSeleccionTerreno);
+    ComboBox cb6=new ComboBox(cbSeleccionTerreno);
+    ComboBox cb7=new ComboBox(cbSeleccionTerreno);
+
+    public void colocarCombo(){//Agregamos los combos acorde a la lista al Vbox
+        //VBTerrenos.getChildren().add(cb0);
+        for (int i = 0; i<listTerrenos_Copia.size();i++) {//Recore lista para ver cual combo se agrega
+            if(listTerrenos_Copia.get(i).equals("0")) {//Verificamos el valor de la lista
+                VBTerrenos.getChildren().add(cb0);//Añadimos al VBOX
+                cb0.setPromptText("Terreno 0");//Texto a mostrar
+                //cb0.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("1")) {
+                VBTerrenos.getChildren().add(cb1);
+                cb1.setPromptText("Terreno 1");
+                //cb1.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("2")) {
+                VBTerrenos.getChildren().add(cb2);
+                cb2.setPromptText("Terreno 2");
+                //cb1.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("3")) {
+                VBTerrenos.getChildren().add(cb3);
+                cb3.setPromptText("Terreno 3");
+                //cb0.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("4")) {
+                VBTerrenos.getChildren().add(cb4);
+                cb4.setPromptText("Terreno 4");
+                //cb1.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("5")) {
+                VBTerrenos.getChildren().add(cb5);
+                cb5.setPromptText("Terreno 5");
+                //cb1.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("6")) {
+                VBTerrenos.getChildren().add(cb6);
+                cb6.setPromptText("Terreno 6");
+                //cb1.setValue("Hielo");
+            }
+            if(listTerrenos_Copia.get(i).equals("7")) {
+                VBTerrenos.getChildren().add(cb7);
+                cb7.setPromptText("Terreno 7");
+                //cb1.setValue("Hielo");
+            }
+
+            ///TODO LO DE ABAJO ES PARA DEBUG
+            System.out.println("Valor listTerrenos: "+i);
+        }
+        System.out.println("Lista listTerrenos comobo");
+        System.out.println("Tamaño list terrenos copia: "+listTerrenos_Copia.size());
+        System.out.println("Tamaño numeroArchivo copia: "+numeroArchivo_Copia.size());
+        for(int i=0; i<listTerrenos.size();i++) {
+            System.out.println("El valor número " + i + " de la lista es: " + listTerrenos.get(i));
+        }
+        if (numeroArchivo_Copia.isEmpty())
+            System.out.println("Vacia");
+    }
+
 }
