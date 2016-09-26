@@ -37,7 +37,7 @@ public class Controller {
 
 
         gpTerreno.setGridLinesVisible(true);
-        gpTerreno.getColumnConstraints().clear();
+        gpTerreno.getColumnConstraints().clear(); //Elimina columnas y filas
         gpTerreno.getRowConstraints().clear();
 
         for(int i=0; i<Columnas; i++) { //Agrega las columnas deseadas
@@ -61,7 +61,7 @@ public class Controller {
     public void cargarArchivo () throws ArrayIndexOutOfBoundsException, IOException{ //Cargamos el archivo y almacenamos lo que tiene
         Filas=0;
         Columnas=0;
-        numeroArchivo.clear();
+        numeroArchivo.clear(); //Limpia la lista antes de agregar
 
         File archivo;
         FileChooser fileChooser = new FileChooser();
