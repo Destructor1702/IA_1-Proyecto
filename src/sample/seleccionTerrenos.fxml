@@ -11,7 +11,7 @@
    <bottom>
       <HBox prefHeight="20.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnAceptar_Terrenos" mnemonicParsing="false" text="Guardar selección y continuar" />
+            <Button fx:id="btnAceptar_Terrenos" mnemonicParsing="false" text="Guardar selección y continuar" onAction="#obtenerRespuestaCombo"/>
             <Button fx:id="btnCombo" mnemonicParsing="false" onAction="#colocarCombo" text="PRUEBA" />
          </children>
          <padding>

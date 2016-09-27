@@ -306,4 +306,191 @@ public class Controller{
             System.out.println("Vacia");
     }
 
+    String Terreno0,Terreno1,Terreno2,Terreno3,Terreno4,Terreno5,Terreno6,Terreno7;
+    public void obtenerRespuestaCombo(){//Obtenemos y guardamos los valores del usuario. Falta el paso intermedio de
+        //acomodarlo por número
+        /*
+        Terreno0=(String) cb0.getValue();
+        Terreno1=(String) cb1.getValue();
+        Terreno2=(String) cb2.getValue();
+        Terreno3=(String) cb3.getValue();
+        Terreno4=(String) cb4.getValue();
+        Terreno5=(String) cb5.getValue();
+        Terreno6=(String) cb6.getValue();
+        Terreno7=(String) cb7.getValue();
+        */
+
+        /*
+        "Agua",
+            "Tierra",
+            "Lodo",
+            "Piedras",
+            "Arbusto",
+            "Camino",
+            "Arena",
+            "Hielo")
+         */
+
+        //Verifico si no seleccionó algún tipo tira error
+        if(cb0.getSelectionModel().isEmpty() || cb1.getSelectionModel().isEmpty() || cb2.getSelectionModel().isEmpty() || cb3.getSelectionModel().isEmpty() || cb4.getSelectionModel().isEmpty() || cb5.getSelectionModel().isEmpty() || cb6.getSelectionModel().isEmpty() || cb7.getSelectionModel().isEmpty()) {
+            //Ventana de tipo alert para advertir al usuario de su error
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Debe seleccionar un tipo de terreno. Olvidó seleccionar alguno");
+            alert.showAndWait();
+        }
+        else{
+            ///VERIFICO VALORES DE LOS COMBOS. Luego los guardo
+            //TERRENO 0
+            if (cb0.getValue().equals("Agua"))
+                Terreno0 = "0";
+            if (cb0.getValue().equals("Tierra"))
+                Terreno0 = "1";
+            if (cb0.getValue().equals("Lodo"))
+                Terreno0 = "2";
+            if (cb0.getValue().equals("Piedras"))
+                Terreno0 = "3";
+            if (cb0.getValue().equals("Arbusto"))
+                Terreno0 = "4";
+            if (cb0.getValue().equals("Camino"))
+                Terreno0 = "5";
+            if (cb0.getValue().equals("Arena"))
+                Terreno0 = "6";
+            if (cb0.getValue().equals("Hielo"))
+                Terreno0 = "7";
+
+            //TERRENO 1
+            if (cb1.getValue().equals("Agua"))
+                Terreno1 = "0";
+            if (cb1.getValue().equals("Tierra"))
+                Terreno1 = "1";
+            if (cb1.getValue().equals("Lodo"))
+                Terreno1 = "2";
+            if (cb1.getValue().equals("Piedras"))
+                Terreno1 = "3";
+            if (cb1.getValue().equals("Arbusto"))
+                Terreno1 = "4";
+            if (cb1.getValue().equals("Camino"))
+                Terreno1 = "5";
+            if (cb1.getValue().equals("Arena"))
+                Terreno1 = "6";
+            if (cb1.getValue().equals("Hielo"))
+                Terreno1 = "7";
+
+            //TERRENO 2
+            if (cb2.getValue().equals("Agua"))
+                Terreno2 = "0";
+            if (cb2.getValue().equals("Tierra"))
+                Terreno2 = "1";
+            if (cb2.getValue().equals("Lodo"))
+                Terreno2 = "2";
+            if (cb2.getValue().equals("Piedras"))
+                Terreno2 = "3";
+            if (cb2.getValue().equals("Arbusto"))
+                Terreno2 = "4";
+            if (cb2.getValue().equals("Camino"))
+                Terreno2 = "5";
+            if (cb2.getValue().equals("Arena"))
+                Terreno2 = "6";
+            if (cb2.getValue().equals("Hielo"))
+                Terreno2 = "7";
+
+            //TERRENO 3
+            if (cb3.getValue().equals("Agua"))
+                Terreno3 = "0";
+            if (cb3.getValue().equals("Tierra"))
+                Terreno3 = "1";
+            if (cb3.getValue().equals("Lodo"))
+                Terreno3 = "2";
+            if (cb3.getValue().equals("Piedras"))
+                Terreno3 = "3";
+            if (cb3.getValue().equals("Arbusto"))
+                Terreno3 = "4";
+            if (cb3.getValue().equals("Camino"))
+                Terreno3 = "5";
+            if (cb3.getValue().equals("Arena"))
+                Terreno3 = "6";
+            if (cb3.getValue().equals("Hielo"))
+                Terreno3 = "7";
+
+            //TERRENO 4
+            if (cb4.getValue().equals("Agua"))
+                Terreno4 = "0";
+            if (cb4.getValue().equals("Tierra"))
+                Terreno4 = "1";
+            if (cb4.getValue().equals("Lodo"))
+                Terreno4 = "2";
+            if (cb4.getValue().equals("Piedras"))
+                Terreno4 = "3";
+            if (cb4.getValue().equals("Arbusto"))
+                Terreno4 = "4";
+            if (cb4.getValue().equals("Camino"))
+                Terreno4 = "5";
+            if (cb4.getValue().equals("Arena"))
+                Terreno4 = "6";
+            if (cb4.getValue().equals("Hielo"))
+                Terreno4 = "7";
+
+            //TERRENO 5
+            if (cb5.getValue().equals("Agua"))
+                Terreno5 = "0";
+            if (cb5.getValue().equals("Tierra"))
+                Terreno5 = "1";
+            if (cb5.getValue().equals("Lodo"))
+                Terreno5 = "2";
+            if (cb5.getValue().equals("Piedras"))
+                Terreno5 = "3";
+            if (cb5.getValue().equals("Arbusto"))
+                Terreno5 = "4";
+            if (cb5.getValue().equals("Camino"))
+                Terreno5 = "5";
+            if (cb5.getValue().equals("Arena"))
+                Terreno5 = "6";
+            if (cb5.getValue().equals("Hielo"))
+                Terreno5 = "7";
+
+            //TERRENO 6
+            if (cb6.getValue().equals("Agua"))
+                Terreno6 = "0";
+            if (cb6.getValue().equals("Tierra"))
+                Terreno6 = "1";
+            if (cb6.getValue().equals("Lodo"))
+                Terreno6 = "2";
+            if (cb6.getValue().equals("Piedras"))
+                Terreno6 = "3";
+            if (cb6.getValue().equals("Arbusto"))
+                Terreno6 = "4";
+            if (cb6.getValue().equals("Camino"))
+                Terreno6 = "5";
+            if (cb6.getValue().equals("Arena"))
+                Terreno6 = "6";
+            if (cb6.getValue().equals("Hielo"))
+                Terreno6 = "7";
+
+            //TERRENO 7
+            if (cb7.getValue().equals("Agua"))
+                Terreno7 = "0";
+            if (cb7.getValue().equals("Tierra"))
+                Terreno7 = "1";
+            if (cb7.getValue().equals("Lodo"))
+                Terreno7 = "2";
+            if (cb7.getValue().equals("Piedras"))
+                Terreno7 = "3";
+            if (cb7.getValue().equals("Arbusto"))
+                Terreno7 = "4";
+            if (cb7.getValue().equals("Camino"))
+                Terreno7 = "5";
+            if (cb7.getValue().equals("Arena"))
+                Terreno7 = "6";
+            if (cb7.getValue().equals("Hielo"))
+                Terreno7 = "7";
+
+            System.out.println("Terreno 0:" + Terreno0);
+            System.out.println("Terreno 1:" + Terreno1);
+            System.out.println("Terreno 2:" + Terreno2);
+            System.out.println("Terreno 3:" + Terreno3);
+            System.out.println("Terreno 4:" + Terreno4);
+            System.out.println("Terreno 5:" + Terreno5);
+            System.out.println("Terreno 6:" + Terreno6);
+            System.out.println("Terreno 7:" + Terreno7);
+        }
+    }
 }
